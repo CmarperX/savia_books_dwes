@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2025 a las 16:19:25
+-- Tiempo de generación: 17-12-2025 a las 19:55:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,17 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `codigo` int(12) NOT NULL,
+  `codigo` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `activo` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`codigo`, `nombre`, `activo`) VALUES
-(100, 'Ciencia Ficción', 'activo');
 
 -- --------------------------------------------------------
 
@@ -47,19 +40,12 @@ INSERT INTO `categorias` (`codigo`, `nombre`, `activo`) VALUES
 --
 
 CREATE TABLE `detallepedido` (
-  `numPedido` int(12) NOT NULL,
-  `lineaPedido` int(12) NOT NULL,
+  `numPedido` int(11) NOT NULL,
+  `lineaPedido` int(11) NOT NULL,
   `codLibro` varchar(9) NOT NULL,
-  `cantidad` int(11) DEFAULT 1,
-  `precio` decimal(5,2) DEFAULT NULL
+  `cantidad` int(11) DEFAULT NULL,
+  `precio` decimal(6,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `detallepedido`
---
-
-INSERT INTO `detallepedido` (`numPedido`, `lineaPedido`, `codLibro`, `cantidad`, `precio`) VALUES
-(5001, 1, 'LIB001', 1, 19.99);
 
 -- --------------------------------------------------------
 
@@ -75,18 +61,11 @@ CREATE TABLE `libros` (
   `editorial` varchar(50) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `imagen` varchar(250) DEFAULT NULL,
-  `stock` int(11) DEFAULT 0,
   `precio` decimal(6,2) DEFAULT NULL,
+  `descuento` float DEFAULT NULL,
   `codCategoria` int(12) DEFAULT NULL,
   `activo` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `libros`
---
-
-INSERT INTO `libros` (`codigo`, `titulo`, `isbn`, `autor`, `editorial`, `fecha`, `imagen`, `stock`, `precio`, `codCategoria`, `activo`) VALUES
-('LIB001', 'Dune', '978-8445073860', 'Frank Herbert', 'Minotauro', '2023-01-15', '/img/dune.jpg', 50, 19.99, 100, 'activo');
 
 -- --------------------------------------------------------
 
@@ -95,20 +74,14 @@ INSERT INTO `libros` (`codigo`, `titulo`, `isbn`, `autor`, `editorial`, `fecha`,
 --
 
 CREATE TABLE `pedidos` (
-  `codigo` int(12) NOT NULL,
+  `codigo` int(11) NOT NULL,
   `fecha` date DEFAULT curdate(),
   `estado` enum('pendiente','enviada','entregada') DEFAULT 'pendiente',
   `total` decimal(6,2) DEFAULT NULL,
+  `descuento` float DEFAULT NULL,
   `codUsuario` varchar(9) NOT NULL,
   `activo` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`codigo`, `fecha`, `estado`, `total`, `codUsuario`, `activo`) VALUES
-(5001, '2025-12-10', 'pendiente', 19.99, '12345678A', 'activo');
 
 -- --------------------------------------------------------
 
@@ -122,11 +95,10 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `direccion` varchar(50) NOT NULL,
-  `localidad` varchar(50) NOT NULL,
-  `provincia` varchar(30) NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
   `telefono` varchar(9) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `roll` enum('cliente','admin') DEFAULT 'cliente',
+  `rol` enum('cliente','admin') DEFAULT 'cliente',
   `activo` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -134,8 +106,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`dni`, `clave`, `nombre`, `apellido`, `direccion`, `localidad`, `provincia`, `telefono`, `email`, `roll`, `activo`) VALUES
-('12345678A', '1234', 'Cristian', 'Marín Pereira', 'C/ Falsa, 123', 'Elche', 'Alicante', '600123456', 'c@gmail.com', 'admin', 'activo');
+INSERT INTO `usuarios` (`dni`, `clave`, `nombre`, `apellido`, `direccion`, `ciudad`, `telefono`, `email`, `rol`, `activo`) VALUES
+('12345678A', '1234', 'profesor', 'severo', 'Calle Ficticia 123', 'elche', '912345678', 'profesor.so@severoochoa.com', 'admin', 'activo'),
+('87654321B', '1234', 'cliente', 'Lopez', 'Avenida Real 456', 'Barcelona', '933456789', 'cliente.lopez@example.com', 'cliente', 'activo');
 
 --
 -- Índices para tablas volcadas
