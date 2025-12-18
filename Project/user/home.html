@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content=""/>
+    <meta name="generator" content="" />
+    <title>User Panel</title>
+    <link rel="shortcut icon" href="../images/savia-books-favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/"
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <meta name="theme-color" content="#712cf9" />
+    <link href="home.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+      </symbol>
+    </svg>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- HEADER -->
+    <header class="p-3 mb-3 border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <!-- LOGO -->
+          <a href="home.html"
+            class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+            <img class="bi me-2" src="../images/logo-savia-books.png" alt="100" height="100">
+          </a>
+          <!-- TOP MENU LINKS-->
+          <div 
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          </div>
+          <!-- SEARCH-->
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+          <!-- USER DROPDOWN MENU -->
+          <div class="dropdown text-end">
+            <a
+              href="#"
+              class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="../images/logo-savia-books.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+            <!-- LIST DROPDOWN MENU-->
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="../user/profile.html">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="../login/index.html">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header> 
+    <main>
+      <!-- CAROUSEL -->
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <!-- FIRST SLIDE -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <!-- IMAGE CAROUSEL 1-->
+            <svg
+              aria-hidden="true"
+              class="bd-placeholder-img"
+              height="100%"
+              preserveAspectRatio="xMidYMid slice"
+              width="100%"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-color)">
+              </rect>
+            </svg>
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h2>Welcome to Savia Books — Where every story begins to bloom.</h2>
+                <br>
+                <p class="opacity-75">
+                  <b>Discover a space created for readers who seek more than just books: they seek inspiration, growth, and a genuine connection with the world around them.
+                  At Savia Books, every read is a seed that sparks ideas, fuels change, and nurtures the way you see life.</b>
+                </p>
+                <br>
+                <p>
+                  <a class="btn btn-lg btn-primary" href="#">Explore Catalog</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- SECOND SLIDE -->
+          <div class="carousel-item">
+            <!-- IMAGE CAROUSEL 2-->
+            <svg
+              aria-hidden="true"
+              class="bd-placeholder-img"
+              height="100%"
+              preserveAspectRatio="xMidYMid slice"
+              width="100%"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-color)"
+              ></rect>
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h2>Thousands of books to nourish your mind and imagination.</h2>
+                <br>
+                <p class="opacity-75">
+                  <b>Find captivating novels, insightful essays, magical children’s stories, and the latest literary releases.
+                  Organize your reservations, manage your personal library, and enjoy an experience designed for passionate readers like you.</b>
+                </p>
+                <br>
+                <p><a class="btn btn-lg btn-primary" href="#">Discover New Reads</a></p>
+              </div>
+            </div>
+          </div>
+          <!-- THIRD SLIDE -->
+          <div class="carousel-item">
+            <svg
+              aria-hidden="true"
+              class="bd-placeholder-img"
+              height="100%"
+              preserveAspectRatio="xMidYMid slice"
+              width="100%"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-color)"
+              ></rect>
+            </svg>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h2>Sustainable reading — because books can care for the planet too.</h2>
+                <br>
+                <p>
+                <b>At Savia Books, we support responsible publishers, eco-friendly materials, and a philosophy that respects the environment.
+                We believe in a future where stories grow like nature itself: with strong roots, wide branches, and a purpose that lasts.</b>
+                </p>
+                <br>
+                <p>
+                  <a class="btn btn-lg btn-primary" href="../about/about.html">Learn About Our Philosophy</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- CATALOG -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"></div>
+        <!-- CATALOG CARDS -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="../images/books/El hobbit.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">THE HOBBIT</h5>
+                  <p class="card-text">The Gateway to Middle-earth. "Smaug seemed fast asleep as he peered once more into the entrance. But he was only pretending! He was guarding the tunnel entrance!
+                  Pulled from his comfortable hobbit-hole by Gandalf and a band of dwarves, Bilbo suddenly finds himself in the middle of a conspiracy to seize the treasure of Smaug the Magnificent, a huge and very dangerous dragon..."</p>
+              </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="../images/books/Asesinato en el Orient Express.jpg" class="card-img-top" alt="..." >
+            <div class="card-body">
+              <h5 class="card-title">MURDER ON THE ORIENT EXPRESS</h5>
+              <p class="card-text"> A universal classic. One of Hercule Poirot's most famous cases.The most popular novel featuring the legendary detective Hercule Poirot.
+              In a remote part of the former Yugoslavia, in the dead of night, a fierce snowstorm blocks the railway line where the Orient Express is traveling. On board, arriving from exotic Istanbul, is detective Hercule Poirot, who suddenly finds himself facing one of the most perplexing cases of his career: in the neighboring compartment, Samuel E. Ratchett has been murdered in his sleep, despite no clues pointing to a specific motive. Poirot will use the situation to investigate the other occupants of the carriage, who, by all appearances, should be the only possible perpetrators of the crime.
+              One victim, twelve suspects, and a brilliant mind in search of the truth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="../images/books/El principe de la niebla.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">The Prince of Mist</h5>
+              <p class="card-text">Carlos Ruiz Zafón's first major success.
+              The Carver family's new home, where they've moved to the coast to escape the city and the war, is shrouded in mystery. 
+              The spirit of Jacob, the former owners' son, who drowned, still lingers. 
+              The strange circumstances of his death only begin to unravel with tt a he arrival of a diabolical figure: the Prince of Mist, capable of granting any wish—but ahigh price.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="../images/books/El alquimista.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">El alquimista</h5>
+              <p class="card-text">The adaptation of Paulo Coelho's masterpiece.
+              This is the story of Santiago, an Andalusian shepherd who dreams of traveling the world and finding the most fabulous treasure ever discovered. He journeys from his home in Spain to the markets of Tangier and from there to the pyramids of the Egyptian desert, where a magical encounter awaits him.
+              Paulo Coelho's The Alchemist is a story with the power to inspire us to pursue our dreams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER-->
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <p class="col-md-4 mb-0 text-body-secondary">
+          &copy; 2025 Company, Inc
+        </p>
+        <div
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+          aria-label="Bootstrap"
+        >
+          <img src="../images/logo-savia-books.png" alt="logo savia books" width="100" height="100">
+      </div>
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="../user/home.html" class="nav-link px-2 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="../user/profile.html" class="nav-link px-2 text-body-secondary">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact/message.html" class="nav-link px-2 text-body-secondary">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="../FAQs/list.html" class="nav-link px-2 text-body-secondary">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="../savia-books/about.html" class="nav-link px-2 text-body-secondary">About</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- dark or bright functionality -->
+    <script src="../js/color-modes.js"></script>
+  </body>
+</html>
