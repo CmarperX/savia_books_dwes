@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-12-2025 a las 19:55:58
+-- Tiempo de generación: 17-12-2025 a las 22:45:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -98,7 +98,7 @@ CREATE TABLE `usuarios` (
   `ciudad` varchar(50) NOT NULL,
   `telefono` varchar(9) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `rol` enum('cliente','admin') DEFAULT 'cliente',
+  `rol` enum('visitante','registrado','empleado','admin') DEFAULT 'visitante',
   `activo` enum('activo','inactivo') DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -107,8 +107,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`dni`, `clave`, `nombre`, `apellido`, `direccion`, `ciudad`, `telefono`, `email`, `rol`, `activo`) VALUES
-('12345678A', '1234', 'profesor', 'severo', 'Calle Ficticia 123', 'elche', '912345678', 'profesor.so@severoochoa.com', 'admin', 'activo'),
-('87654321B', '1234', 'cliente', 'Lopez', 'Avenida Real 456', 'Barcelona', '933456789', 'cliente.lopez@example.com', 'cliente', 'activo');
+('12345678A', '1234', 'profesor', 'Gomez', 'Elche', 'Elche', '912345678', 'profesor.severo@severo.com', 'admin', 'activo'),
+('12345678B', 'abcd1234', 'Laura', 'Sánchez', 'Calle Gran Vía 45', 'Barcelona', '611223344', 'laura.sanchez@registrado.com', 'registrado', 'activo'),
+('23456789C', 'emp1234', 'Carlos', 'Martínez', 'Calle Secundaria 23', 'Sevilla', '622334455', 'carlos.martinez@empleado.com', 'empleado', 'activo'),
+('99988877V', '1234', 'Juan', 'Pérez', 'Calle Falsa 123', 'Madrid', '600123456', 'juan.perez@visitante.com', 'visitante', 'activo');
 
 --
 -- Índices para tablas volcadas
