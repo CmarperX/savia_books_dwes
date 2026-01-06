@@ -1,0 +1,14 @@
+# Archivos de configuración con claves
+Proyecto/config.local.php
+Proyecto/config.produccion.php
+
+# Dependencias
+Proyecto/vendor/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
